@@ -37,7 +37,7 @@ li {
   cursor: pointer;
   display: flex;
   font-size: 16px;
-  padding: 0 10px;
+  padding: 0 10px 6px;
   position: relative;
 }
 
@@ -63,7 +63,7 @@ pre {
   left: 0;
   -webkit-writing-mode: vertical-lr;
   writing-mode: vertical-lr;
-  position: absolute;
+  position: fixed;
   letter-spacing: -4px;
 }
 
@@ -77,7 +77,7 @@ pre {
   right: 0;
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
-  position: absolute;
+  position: fixed;
   letter-spacing: 1px;
 }
 
@@ -200,4 +200,24 @@ pre {
   align-items: center;
   padding-top: 1%;
   margin-bottom: 25px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the column horizontally */
+  align-items: center; /* Center the column vertically */
+  
+}
+
+.about {
+  margin-top: 15px;
+  text-align: left; /* Center text horizontally */
+  width: 45%;
+}
+
+.some-link {
+  width: 45px;
+  padding-right: 15px;
+  padding-bottom: 15px;
 }
