@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-const Box = ({ imageUrl, overflowHeader, overflowText, link, size }) => {
+const Box = ({ imageUrl, overflowHeader, overflowText, link, size}) => {
     const [isHovered, setIsHovered] = useState(false);
   
     const handleMouseEnter = () => {
@@ -24,8 +24,11 @@ const Box = ({ imageUrl, overflowHeader, overflowText, link, size }) => {
       >
         <img src={imageUrl} alt="Box" className="box-image" />
         <div className="box-content">
-          {isHovered ?
-            <p className="overflow-text"><h3>{overflowHeader}</h3>{overflowText}</p>
+          {(isHovered || window.screen.width <= 820) ?
+          <div className="overflow-text">
+            <h3>{overflowHeader}</h3>
+            <p>{overflowText}</p>
+          </div>
           : null}
         </div>
       </a>
