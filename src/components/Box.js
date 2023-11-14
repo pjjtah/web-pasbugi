@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-const Box = ({ imageUrl, overflowHeader, overflowText, link, size}) => {
+const Box = ({onClick, imageUrl, overflowHeader, overflowText, size}) => {
     const [isHovered, setIsHovered] = useState(false);
   
     const handleMouseEnter = () => {
@@ -13,10 +13,8 @@ const Box = ({ imageUrl, overflowHeader, overflowText, link, size}) => {
     };
   
     return (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
+      <div
+      onClick={onClick}
         className={`box ${isHovered ? 'hovered' : ''}`}
         style={{width: + size, height: + size}}
         onMouseEnter={handleMouseEnter}
@@ -31,7 +29,7 @@ const Box = ({ imageUrl, overflowHeader, overflowText, link, size}) => {
           </div>
           : null}
         </div>
-      </a>
+      </div>
     );
   };
   

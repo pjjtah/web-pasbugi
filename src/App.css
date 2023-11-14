@@ -22,7 +22,6 @@ body {
   background-color: #000;
   padding: 20px 0;
   text-align: center;
-  
 }
 
 
@@ -220,4 +219,108 @@ pre {
   width: 45px;
   padding-right: 15px;
   padding-bottom: 15px;
+}
+
+.modal {
+  position: fixed;
+  z-Index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vw;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modalContent  {
+  position: relative;
+  font-size: 20px;
+  display: flex;
+  align-items: left;
+  text-align: left;
+  flex-direction: column;
+  margin: auto;
+  background-color: #142f57fa;
+  width: fit-content;
+  border-radius: 25px;
+}
+
+.modalDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modalImage {
+  width: 270px;
+  padding-top: 25px;
+  margin-left: 35px;
+}
+
+@media (max-width: 900px) {
+  .modalDiv {
+    flex-direction: column; /* Change to vertical stacking */
+  }
+  
+  .modalImage {
+    padding-top: 25px;
+    margin-left: 0px;
+  }
+}
+
+
+
+.modalImageBot {
+  padding-bottom: 25px;
+  padding-top: 25px;
+  margin-left: 35px;
+  width: 350px;
+  margin-right: 35px;
+}
+
+.modalImageBot:hover {
+  transform: scale(1.525); /* Scale up on hover */
+}
+
+.modalText {
+  padding-top: 25px;
+  padding-left: 25px;
+}
+
+a {
+  color: hotpink;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.disabledLink {
+  color: rgb(184, 154, 175);
+  text-decoration: underline;
+}
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  top: -15px;
+  content: ' ';
+  height: 40px;
+  width: 3px;
+  background-color: #8a1919;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
