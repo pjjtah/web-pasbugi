@@ -36,7 +36,7 @@ function App() {
 
   const handleClose = () => {
     setCrocodale(false);
-    setRat(false);
+    setBounze(false);
     setRat(false);
   };
 
