@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Box from './components/Box';
 import Header from './components/Header';
@@ -12,6 +12,8 @@ function App() {
   const [crocoDale, setCrocodale] = useState(false);
   const [bounze, setBounze] = useState(false);
   const [rat, setRat] = useState(false);
+
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const handleAbout = () => {
     setAbout(true);
@@ -40,6 +42,21 @@ function App() {
     setRat(false);
   };
 
+  useEffect(() => {
+    const images = ["/bounze.png", "/bounze_screenshot_1.png", "/bounze_screenshot_2.png"];
+    const loadedImages = [];
+
+    images.forEach((image) => {
+      const img = new Image();
+      img.onload = () => {
+        loadedImages.push(image);
+        if (loadedImages.length === images.length) {
+          setImagesLoaded(true);
+        }
+      };
+      img.src = image;
+    });
+  }, []);
   return (
     <div className="App">
       <div className='borders'>
@@ -72,6 +89,9 @@ function App() {
             <h2>Jam Games</h2>
 
             <section className='games'>
+            <a href='https://ldjam.com/events/ludum-dare/55/sokobane-descend' target="_blank" rel="noopener noreferrer">
+                <Box imageUrl={"/sokobane.png"} overflowHeader={""} overflowText={"Summoning Trials in the Depths of Sokobane!"} size={150}></Box>
+              </a>
               <a href='https://pasbugi.itch.io/ninja-fruit' target="_blank" rel="noopener noreferrer">
                 <Box imageUrl={"/fruit.png"} overflowHeader={""} overflowText={"Save 'n Slice the Fruits!"} size={150}></Box>
               </a>
