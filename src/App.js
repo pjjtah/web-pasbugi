@@ -34,7 +34,21 @@ function App() {
     setRat(true);
   };
 
+// Get the star container element
+const starContainer = React.useRef(null);
 
+// Function to create a new shooting star
+function createStar() {
+  if(starContainer.current){
+    const star = document.createElement('div');
+    star.classList.add('star');
+    starContainer.current.appendChild(star);
+  }
+
+}
+
+// Set an interval to create new stars at regular intervals
+setInterval(createStar, 500);
 
   const handleClose = () => {
     setCrocodale(false);
@@ -59,6 +73,7 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <div class="star-container "className="star-container" ref={starContainer}>
       <div className='borders'>
         <div className='left'>
           <pre>Лорем ипсум долор сит амет, пер цлита поссит ех, ат мунере фабулас петентиум сит. </pre>
@@ -68,7 +83,7 @@ function App() {
         </div>
       </div>
       <header className="App-header">
-
+      <div class="content">
         <Header handleAbout={handleAbout} handleGames={handleGames}></Header>
         {about ?
           <About></About>
@@ -89,6 +104,9 @@ function App() {
             <h2>Jam Games</h2>
 
             <section className='games'>
+            <a href='https://pasbugi.itch.io/skele' target="_blank" rel="noopener noreferrer">
+                <Box imageUrl={"/skeleton_origins.png"} overflowHeader={""} overflowText={"Build the Skeleton!"} size={150}></Box>
+              </a>
             <a href='https://ldjam.com/events/ludum-dare/55/sokobane-descend' target="_blank" rel="noopener noreferrer">
                 <Box imageUrl={"/sokobane.png"} overflowHeader={""} overflowText={"Summoning Trials in the Depths of Sokobane!"} size={150}></Box>
               </a>
@@ -105,10 +123,10 @@ function App() {
                 <Box imageUrl={"/crypt.jpg"} overflowHeader={""} overflowText={"Descend the Crypt.."} size={150}></Box>
               </a>
             </section>
-          </div>}
+          </div>}  </div>
       </header>
 
-    </div>
+    </div></div>
   );
 }
 
